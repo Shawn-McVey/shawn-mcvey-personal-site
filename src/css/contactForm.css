@@ -1,5 +1,25 @@
 .contact-form input {
-    width: 100%;
-    border: 1px solid #111;
+    padding: 20px;
+    width: 30%;
+    border: 1px solid #ccc;
     margin-right: 10px;
+}
+.contact-form .last-input {
+    margin-right: 0;
+}
+
+.contact-form textarea {
+    padding: 20px;
+    margin-top: 20px;
+    width: 93%;
+    border: 1px solid #ccc; 
+}
+
+.contact-form button {
+    padding: 10px;
+    border: none;
+    background-color: #2F80ED;
+    color: #fff;
+    text-transform: uppercase;
+    width: 93%;
 }

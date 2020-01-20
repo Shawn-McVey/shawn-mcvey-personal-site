@@ -52,7 +52,7 @@ export default () => {
     return (
           <ImageBackground>
             <ContentContainer>
-                <img style={{ maxWidth: `100%` }} src={logoImg} />
+                <img style={{ width: `100%` }} src={logoImg} />
             </ContentContainer>
           </ImageBackground>
     )
