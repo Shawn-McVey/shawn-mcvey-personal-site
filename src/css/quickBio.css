@@ -1,0 +1,32 @@
+.menu {
+  background-color: black;
+  color: #fff;
+  display: flex;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem auto;
+  max-width: 940px;
+  padding: 0px 1rem;
+}
+.grid .col {
+  width: 32%;
+  padding: 0 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    display: block;
+  }
+
+  .grid .col {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+}
+
+.full-col {
+  align-self: flex-end;
+}
