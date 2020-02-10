@@ -1,8 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import Hero from "../components/hero"
-import QuickBio from "../components/quickBio"
-import Img from 'gatsby-image';
+import "../css/main.css"
 import { graphql } from 'gatsby'
 
 export default ({data}) => (
@@ -10,25 +9,42 @@ export default ({data}) => (
   <Hero />
   <Layout>
   <div style={{ margin: `3rem auto`, maxWidth: 650, padding: `0 1rem`, textAlign: `center` }}>
-    <h2>Hi! I'm Shawn</h2>
-    <p>I do lots of different things on this here internet.</p>
+    <h2>{data.site.siteMetadata.title}</h2>
+    <p>{data.site.siteMetadata.subheader}</p>
     </ div>
   </Layout>
   <div>
-    <QuickBio />
+<div className="grid">
+    {/* {console.log(data.allContentfulShawnQuickBios.edges[0].node)} */}
+    { data.allContentfulShawnQuickBios.edges.map(({node: post}) => {
+      return(
+        <div className="col">
+          <h3>{post.header}</h3>
+          <p>{post.content}</p>
+        </div>
+      )
+    })}
   </div>
-
+</div>
   </>
 )
 
-// export const query = graphql`
-//   query {
-//     file(relativePath: { eq: "background-image.jpg" }) {
-//       childImageSharp {
-//         fixed(width: 500, height: 600) {
-//           ...GatsbyImageSharpFixed
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        subheader
+      }
+    }
+    allContentfulShawnQuickBios(limit: 3) {
+      edges {
+        node {
+          id
+          header
+          content
+        }
+      }
+    }
+  }
+`

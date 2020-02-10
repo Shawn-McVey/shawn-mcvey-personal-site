@@ -8,20 +8,22 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `My Photography Site`,
-    description: `Just the best`,
+    title: `Hi! I'm Shawn`,
+    subheader: `I do lots of different things on this here internet.`,
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        path: `./src/images/`
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
       },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {

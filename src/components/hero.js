@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Link, graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image';
 import logoImg from '../images/sm-logo.svg'
 
 
@@ -37,22 +35,10 @@ const ContentContainer = styled('div')`
 `
 
 export default () => {
-    const data = useStaticQuery(graphql`
-      query {
-        background: file(relativePath: { eq: "background-image.jpg" }) {
-            childImageSharp {
-                fixed(width: 500, height: 600) {
-                ...GatsbyImageSharpFixed
-                }
-            }
-        }
-      }
-    `)
-  
     return (
           <ImageBackground>
             <ContentContainer>
-                <img style={{ width: `100%` }} src={logoImg} />
+                <img style={{ width: `100%` }} src={logoImg} alt=""/>
             </ContentContainer>
           </ImageBackground>
     )
